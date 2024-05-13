@@ -159,13 +159,13 @@ int main(int argc, char* argv[]) {
 		NULL
 	);
 
-	//if (hThread == NULL) {
-	//	printf("%s failed to get a handle to thread , error: %ld", e, GetLastError());
-	//	CloseHandle(hProcess);
-	//	return EXIT_FAILURE;
-	//}
+	if (hThread == NULL) {
+		printf("%s failed to get a handle to thread , error: %ld", e, GetLastError());
+		CloseHandle(hProcess);
+		return EXIT_FAILURE;
+	}
 
-	//printf("%s got a handle to thread (%ld)\n\\---0x%p\n", k , TID , hThread);	
+	printf("%s got a handle to thread (%ld)\n\\---0x%p\n", k , TID , hThread);	
 
 	WaitForSingleObject(hThread, INFINITE);
 	printf("%s thread has finished executing\n", k);	
